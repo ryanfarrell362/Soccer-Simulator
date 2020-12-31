@@ -20,7 +20,7 @@ public class SoccerSimulator {
     public static final int DEBUG = 0;
 
     public static void main (String [] args) {
-        String input = "";
+        String input;
         Scanner in = new Scanner (System.in);
 
         while (true) {
@@ -95,7 +95,7 @@ public class SoccerSimulator {
     }
 
     public static void loadFile () {
-        Club [] clubs = new Club [NUM_TEAMS];
+        // Club [] clubs = new Club [NUM_TEAMS];
 
         // sim (clubs);
     }
@@ -105,14 +105,22 @@ public class SoccerSimulator {
     }
 
     public static void sim (Club [] clubs, int currentWeek, int [][][] fixtures, int currentSeason) {
-        String input = "";
+        String input;
         Scanner in = new Scanner(System.in);
 
-        Club [] clubStandings = new Club [NUM_TEAMS];
-        System.arraycopy(clubs, 0, clubStandings, 0, NUM_TEAMS);
+        int [] clubStandings = new int [NUM_TEAMS];
+        for (int i = 0; i < NUM_TEAMS; i ++) {
+            clubStandings [i] = i;
+        }
 
         while (true) {
-            System.out.println ("");
+            System.out.println ();
+
+            if (currentWeek >= ((NUM_TEAMS - 1) * NUM_OCCURRENCES)) {
+                endOfSeason (clubs, clubStandings, fixtures, currentWeek, currentSeason);
+                currentWeek = 0;
+                currentSeason ++;
+            }
 
             System.out.println ("(1) Simulate Current Week");
             System.out.println ("(2) Simulate to End of Season");
@@ -127,13 +135,13 @@ public class SoccerSimulator {
             switch (input) {
                 case "1":
                     simMatches(clubs, fixtures, currentWeek, currentSeason);
-                    sortClubs (clubStandings);
+                    sortClubs (clubs, clubStandings);
                     currentWeek ++;
                     break;
                 case "2":
                     while (currentWeek < (NUM_TEAMS - 1) * NUM_OCCURRENCES) {
                         simMatches(clubs, fixtures, currentWeek, currentSeason);
-                        sortClubs (clubStandings);
+                        sortClubs (clubs, clubStandings);
                         currentWeek ++;
                     }
                     break;
@@ -141,10 +149,10 @@ public class SoccerSimulator {
                     viewFixtures(fixtures, currentWeek, clubs, currentSeason);
                     break;
                 case "4":
-                    viewStandings(clubStandings, currentWeek, currentSeason);
+                    viewStandings(clubs, clubStandings, currentWeek, currentSeason);
                     break;
                 case "5":
-                    viewClub(clubStandings);
+                    viewClub(clubs);
                     break;
                 case "6":
                     saveFile();
@@ -156,12 +164,11 @@ public class SoccerSimulator {
     }
 
     public static void simMatches (Club [] clubs, int [][][] fixtures, int currentWeek, int currentSeason) {
-        int goals1 = 0;
-        int goals2 = 0;
+        int goals1, goals2;
 
         Random rand = new Random();
 
-        System.out.println ("");
+        System.out.println ();
         System.out.println ("Season " + currentSeason + " - Week " + (currentWeek + 1));
         System.out.println ("-------------------");
 
@@ -234,7 +241,7 @@ public class SoccerSimulator {
         }
     }
 
-    public static void sortClubs (Club [] clubStandings) {
+    public static void sortClubs (Club [] clubs, int [] clubStandings) {
         boolean sortDone = true;
 
         // After every match week, sort the teams in the clubStandings array for the purpose of making printing out the standings very easy
@@ -248,22 +255,22 @@ public class SoccerSimulator {
             // 3. If tied on goal differential, use goals for
             // 4. If tied on goals for, then the computer can decide who gets to be ahead I don't care
             for (int i = 0; i < NUM_TEAMS - 1; i ++) {
-                if ((clubStandings [i].getCurrentWins() * 3 + clubStandings [i].getCurrentDraws()) < (clubStandings [i + 1].getCurrentWins() * 3 + clubStandings [i + 1].getCurrentDraws())) {
-                    Club temp = clubStandings [i];
+                if ((clubs [clubStandings [i]].getCurrentWins() * 3 + clubs [clubStandings [i]].getCurrentDraws()) < (clubs [clubStandings [i + 1]].getCurrentWins() * 3 + clubs [clubStandings [i + 1]].getCurrentDraws())) {
+                    int temp = clubStandings [i];
                     clubStandings [i] = clubStandings [i + 1];
                     clubStandings [i + 1] = temp;
 
                     sortDone = true;
-                } else if ((clubStandings [i].getCurrentWins() * 3 + clubStandings [i].getCurrentDraws()) == (clubStandings [i + 1].getCurrentWins() * 3 + clubStandings [i + 1].getCurrentDraws())) {
-                    if ((clubStandings [i].getCurrentGoalsFor() - clubStandings [i].getCurrentGoalsAgainst()) < (clubStandings [i + 1].getCurrentGoalsFor() - clubStandings [i + 1].getCurrentGoalsAgainst())) {
-                        Club temp = clubStandings [i];
+                } else if ((clubs [clubStandings [i]].getCurrentWins() * 3 + clubs [clubStandings [i]].getCurrentDraws()) == (clubs [clubStandings [i + 1]].getCurrentWins() * 3 + clubs [clubStandings [i + 1]].getCurrentDraws())) {
+                    if ((clubs [clubStandings [i]].getCurrentGoalsFor() - clubs [clubStandings [i]].getCurrentGoalsAgainst()) < (clubs [clubStandings [i + 1]].getCurrentGoalsFor() - clubs [clubStandings [i + 1]].getCurrentGoalsAgainst())) {
+                        int temp = clubStandings [i];
                         clubStandings [i] = clubStandings [i + 1];
                         clubStandings [i + 1] = temp;
 
                         sortDone = true;
-                    } else if ((clubStandings [i].getCurrentGoalsFor() - clubStandings [i].getCurrentGoalsAgainst()) == (clubStandings [i + 1].getCurrentGoalsFor() - clubStandings [i + 1].getCurrentGoalsAgainst())) {
-                        if ((clubStandings [i].getCurrentGoalsFor() < clubStandings [i + 1].getCurrentGoalsFor())) {
-                            Club temp = clubStandings [i];
+                    } else if ((clubs [clubStandings [i]].getCurrentGoalsFor() - clubs [clubStandings [i]].getCurrentGoalsAgainst()) == (clubs [clubStandings [i + 1]].getCurrentGoalsFor() - clubs [clubStandings [i + 1]].getCurrentGoalsAgainst())) {
+                        if ((clubs [clubStandings [i]].getCurrentGoalsFor() < clubs [clubStandings [i + 1]].getCurrentGoalsFor())) {
+                            int temp = clubStandings [i];
                             clubStandings [i] = clubStandings [i + 1];
                             clubStandings [i + 1] = temp;
 
@@ -276,7 +283,7 @@ public class SoccerSimulator {
     }
 
     public static void viewFixtures (int [][][] fixtures, int currentWeek, Club [] clubs, int currentSeason) {
-        System.out.println ("");
+        System.out.println ();
         System.out.println ("Season " + currentSeason + " - Week " + (currentWeek + 1));
         System.out.println ("-----------------------");
 
@@ -286,10 +293,10 @@ public class SoccerSimulator {
         }
     }
 
-    public static void viewStandings (Club [] clubStandings, int currentWeek, int currentSeason) {
-        System.out.println ("");
+    public static void viewStandings (Club [] clubs, int [] clubStandings, int currentWeek, int currentSeason) {
+        System.out.println ();
 
-        System.out.println ("Season " + currentSeason + " - Week " + (currentWeek + 1));
+        System.out.println ("Season " + currentSeason + " - Week " + currentWeek);
         System.out.println ("-----------------------");
 
         System.out.println ("Pos | Team Name |  W |  D |  L |  GF |  GA |   GD | PTS |");
@@ -298,32 +305,56 @@ public class SoccerSimulator {
         // For each team in the league, print out all of their stats using the sorted clubStandings array
         for (int i = 0; i < NUM_TEAMS; i ++) {
             System.out.print (String.format("%3s", (i + 1)) + " | ");
-            System.out.print (String.format("%9s", clubStandings [i].getName()) + " | ");
-            System.out.print (String.format("%2s", clubStandings [i].getCurrentWins()) + " | ");
-            System.out.print (String.format("%2s", clubStandings [i].getCurrentDraws()) + " | ");
-            System.out.print (String.format("%2s", clubStandings [i].getCurrentLosses()) + " | ");
-            System.out.print (String.format("%3s", clubStandings [i].getCurrentGoalsFor()) + " | ");
-            System.out.print (String.format("%3s", clubStandings [i].getCurrentGoalsAgainst()) + " | ");
-            System.out.print (String.format("%4s", (clubStandings [i].getCurrentGoalsFor() - clubStandings [i].getCurrentGoalsAgainst())) + " | ");
-            System.out.println (String.format("%3s", (clubStandings [i].getCurrentWins() * 3 + clubStandings [i].getCurrentDraws())) + " | ");
+            System.out.print (String.format("%9s", clubs [clubStandings [i]].getName()) + " | ");
+            System.out.print (String.format("%2s", clubs [clubStandings [i]].getCurrentWins()) + " | ");
+            System.out.print (String.format("%2s", clubs [clubStandings [i]].getCurrentDraws()) + " | ");
+            System.out.print (String.format("%2s", clubs [clubStandings [i]].getCurrentLosses()) + " | ");
+            System.out.print (String.format("%3s", clubs [clubStandings [i]].getCurrentGoalsFor()) + " | ");
+            System.out.print (String.format("%3s", clubs [clubStandings [i]].getCurrentGoalsAgainst()) + " | ");
+            System.out.print (String.format("%4s", (clubs [clubStandings [i]].getCurrentGoalsFor() - clubs [clubStandings [i]].getCurrentGoalsAgainst())) + " | ");
+            System.out.println (String.format("%3s", (clubs [clubStandings [i]].getCurrentWins() * 3 + clubs [clubStandings [i]].getCurrentDraws())) + " | ");
         }
     }
 
     public static void viewClub (Club [] clubs) {
-        // Need to work on this
         String input;
         Scanner in = new Scanner(System.in);
 
-        System.out.println ("");
+        System.out.println ();
 
         System.out.print ("Which team would you like to see?: ");
         input = in.nextLine();
-        System.out.println ("");
+        System.out.println ();
 
         for (int i = 0 ; i < NUM_TEAMS; i ++) {
             if (input.equalsIgnoreCase(clubs [i].getName())) {
                 System.out.println (clubs [i].toString(DEBUG));
             }
         }
+    }
+
+    public static void endOfSeason (Club [] clubs, int [] clubStandings, int [][][] fixtures, int currentWeek, int currentSeason) {
+        viewStandings(clubs, clubStandings, currentWeek, currentSeason);
+
+        System.out.println ();
+
+        System.out.println("Congratulations to " + clubs [clubStandings [0]].getName () + " for winning season " + currentSeason + "!");
+        clubs [clubStandings [0]].setTotalTrophies (clubs [clubStandings [0]].getTotalTrophies() + 1);
+
+        System.out.println ();
+
+        Random rand = new Random();
+
+        for (int i = 0; i < NUM_TEAMS; i ++) {
+            clubs [i].setCurrentWins(0);
+            clubs [i].setCurrentDraws(0);
+            clubs [i].setCurrentLosses(0);
+            clubs [i].setCurrentGoalsFor(0);
+            clubs [i].setCurrentGoalsAgainst(0);
+
+            clubs [i].setSway(rand.nextInt(VARIATION) + 100 - (VARIATION / 2));
+        }
+
+        generateFixtures(fixtures);
     }
 }

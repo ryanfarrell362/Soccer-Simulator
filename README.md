@@ -22,6 +22,5 @@ Inspired by marble races on Youtube, this program allows you to generate a leagu
 ![History](example%20images/history.jpg)
 
 # To Do
-- Add seasons
 - Add save/load capability
 - Make into a website?
