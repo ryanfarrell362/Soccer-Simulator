@@ -160,10 +160,16 @@ public class SoccerSimulator {
         System.out.println ("Season " + currentSeason + " - Week " + (currentWeek + 1));
         System.out.println ("-------------------");
 
+        // A loop to generate a match result according to the number of teams in the league divided by 2
         for (int i = 0; i < NUM_TEAMS / 2; i ++) {
-            goals1 = generateScore(rand.nextInt(SCORING) + 1 + (clubs [fixtures [currentWeek][i][0]].getSway() - 100) - (clubs [fixtures [currentWeek][i][1]].getSway() - 100));
-            goals2 = generateScore(rand.nextInt(SCORING) + 1 + (clubs [fixtures [currentWeek][i][1]].getSway() - 100) - (clubs [fixtures [currentWeek][i][0]].getSway() - 100));
+            // Generate a random number between 0 and the value of SCORING
+            // Add the sway of the team whose score is being generated as the value above or below a baseline of 100
+            // Subtract the sway of the opposing team (Sway below 100 will add to the total, increasing the difference between a top and bottom team)
+            // Then send the result to the generateScore function to determine the number of goals scores, repeat for the other team
+            goals1 = generateScore(rand.nextInt(SCORING) + (clubs [fixtures [currentWeek][i][0]].getSway() - 100) - (clubs [fixtures [currentWeek][i][1]].getSway() - 100));
+            goals2 = generateScore(rand.nextInt(SCORING) + (clubs [fixtures [currentWeek][i][1]].getSway() - 100) - (clubs [fixtures [currentWeek][i][0]].getSway() - 100));
 
+            // Update statistics accordingly based on goals
             clubs [fixtures [currentWeek][i][0]].setCurrentGoalsFor(clubs [fixtures [currentWeek][i][0]].getCurrentGoalsFor() + goals1);
             clubs [fixtures [currentWeek][i][1]].setCurrentGoalsFor(clubs [fixtures [currentWeek][i][1]].getCurrentGoalsFor() + goals2);
 
@@ -176,6 +182,7 @@ public class SoccerSimulator {
             clubs [fixtures [currentWeek][i][0]].setTotalGoalsAgainst(clubs [fixtures [currentWeek][i][0]].getTotalGoalsAgainst() + goals2);
             clubs [fixtures [currentWeek][i][1]].setTotalGoalsAgainst(clubs [fixtures [currentWeek][i][1]].getTotalGoalsAgainst() + goals1);
 
+            // Determine the winner and loser of the match
             if (goals1 > goals2) {
                 clubs [fixtures [currentWeek][i][0]].setCurrentWins(clubs [fixtures [currentWeek][i][0]].getCurrentWins() + 1);
                 clubs [fixtures [currentWeek][i][1]].setCurrentLosses(clubs [fixtures [currentWeek][i][1]].getCurrentLosses() + 1);
@@ -187,11 +194,13 @@ public class SoccerSimulator {
                 clubs [fixtures [currentWeek][i][1]].setCurrentWins(clubs [fixtures [currentWeek][i][1]].getCurrentWins() + 1);
             }
 
+            // Print the match result
             System.out.println ("Match " + (i + 1) + ": " + clubs [fixtures [currentWeek][i][0]].getName() + " (" + goals1 + " - " + goals2 + ") " + clubs [fixtures [currentWeek][i][1]].getName());
         }
     }
 
     public static int generateScore (int result) {
+        // This 1 to 100 scale worked well before I added sway, might change later
         if (result > 99) {
             return 7;
         } else if (result > 96) {
@@ -214,9 +223,16 @@ public class SoccerSimulator {
     public static void sortClubs (Club [] clubStandings) {
         boolean sortDone = true;
 
+        // After every match week, sort the teams in the clubStandings array for the purpose of making printing out the standings very easy
+        // I used a bubble sort because I'm lazy
         while (sortDone) {
             sortDone = false;
 
+            // The three conditions for sorting
+            // 1. Points
+            // 2. If tied on points, use goal differential
+            // 3. If tied on goal differential, use goals for
+            // 4. If tied on goals for, then the computer can decide who gets to be ahead I don't care
             for (int i = 0; i < NUM_TEAMS - 1; i ++) {
                 if ((clubStandings [i].getCurrentWins() * 3 + clubStandings [i].getCurrentDraws()) < (clubStandings [i + 1].getCurrentWins() * 3 + clubStandings [i + 1].getCurrentDraws())) {
                     Club temp = clubStandings [i];
@@ -250,6 +266,7 @@ public class SoccerSimulator {
         System.out.println ("Season " + currentSeason + " - Week " + (currentWeek + 1));
         System.out.println ("-----------------------");
 
+        // For each match on a given week, print out the two teams of each match
         for (int i = 0; i < NUM_TEAMS / 2; i ++) {
             System.out.println ("Match " + (i + 1) + ": " + clubs [fixtures [currentWeek][i][0]].getName() + " vs. " + clubs [fixtures [currentWeek][i][1]].getName());
         }
@@ -264,6 +281,7 @@ public class SoccerSimulator {
         System.out.println ("Pos | Team Name |  W |  D |  L |  GF |  GA |   GD | PTS |");
         System.out.println ("----|-----------|----|----|----|-----|-----|------|-----|");
 
+        // For each team in the league, print out all of their stats using the sorted clubStandings array
         for (int i = 0; i < NUM_TEAMS; i ++) {
             System.out.print (String.format("%3s", (i + 1)) + " | ");
             System.out.print (String.format("%9s", clubStandings [i].getName()) + " | ");
@@ -278,6 +296,7 @@ public class SoccerSimulator {
     }
 
     public static void viewClub (Club [] clubs) {
+        // Need to work on this
         int input;
         Scanner in = new Scanner(System.in);
 
