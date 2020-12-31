@@ -14,6 +14,11 @@ public class SoccerSimulator {
     // Ideally scoring and variation will add up to 100 or slightly over
     public static final int VARIATION = 30;
 
+    // This is to show values that the user shouldn't see such as sway
+    // 1 for on
+    // 0 for off
+    public static final int DEBUG = 0;
+
     public static void main (String [] args) {
         String input = "";
         Scanner in = new Scanner (System.in);
@@ -306,15 +311,19 @@ public class SoccerSimulator {
 
     public static void viewClub (Club [] clubs) {
         // Need to work on this
-        int input;
+        String input;
         Scanner in = new Scanner(System.in);
 
         System.out.println ("");
 
         System.out.print ("Which team would you like to see?: ");
-        input = Integer.parseInt(in.nextLine());
+        input = in.nextLine();
         System.out.println ("");
 
-        System.out.println (clubs [input - 1]);
+        for (int i = 0 ; i < NUM_TEAMS; i ++) {
+            if (input.equalsIgnoreCase(clubs [i].getName())) {
+                System.out.println (clubs [i].toString(DEBUG));
+            }
+        }
     }
 }

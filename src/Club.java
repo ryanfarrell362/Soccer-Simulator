@@ -152,8 +152,7 @@ public class Club {
         this.sway = sway;
     }
 
-    @Override
-    public String toString () {
+    public String toString (int DEBUG) {
         String output = "";
 
         output += "Club Name: " + getName() + "\n";
@@ -164,7 +163,10 @@ public class Club {
         output += "Total Goals Against: " + getTotalGoalsAgainst() + "\n";
         output += "Total Goal Differential: " + (getTotalGoalsFor() - getTotalGoalsAgainst()) + "\n";
         output += "Total Trophies: " + getTotalTrophies() + "\n";
-        output += "Sway : " + getSway() + "\n";
+
+        if (DEBUG == 1) {
+            output += "Sway : " + getSway() + "\n";
+        }
 
         return output;
     }
