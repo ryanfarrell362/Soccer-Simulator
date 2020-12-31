@@ -186,12 +186,21 @@ public class SoccerSimulator {
             if (goals1 > goals2) {
                 clubs [fixtures [currentWeek][i][0]].setCurrentWins(clubs [fixtures [currentWeek][i][0]].getCurrentWins() + 1);
                 clubs [fixtures [currentWeek][i][1]].setCurrentLosses(clubs [fixtures [currentWeek][i][1]].getCurrentLosses() + 1);
+
+                clubs [fixtures [currentWeek][i][0]].setTotalWins(clubs [fixtures [currentWeek][i][0]].getTotalWins() + 1);
+                clubs [fixtures [currentWeek][i][1]].setTotalLosses(clubs [fixtures [currentWeek][i][1]].getTotalLosses() + 1);
             } else if (goals1 == goals2) {
                 clubs [fixtures [currentWeek][i][0]].setCurrentDraws(clubs [fixtures [currentWeek][i][0]].getCurrentDraws() + 1);
                 clubs [fixtures [currentWeek][i][1]].setCurrentDraws(clubs [fixtures [currentWeek][i][1]].getCurrentDraws() + 1);
+
+                clubs [fixtures [currentWeek][i][0]].setTotalDraws(clubs [fixtures [currentWeek][i][0]].getTotalDraws() + 1);
+                clubs [fixtures [currentWeek][i][1]].setTotalDraws(clubs [fixtures [currentWeek][i][1]].getTotalDraws() + 1);
             } else {
                 clubs [fixtures [currentWeek][i][0]].setCurrentLosses(clubs [fixtures [currentWeek][i][0]].getCurrentLosses() + 1);
                 clubs [fixtures [currentWeek][i][1]].setCurrentWins(clubs [fixtures [currentWeek][i][1]].getCurrentWins() + 1);
+
+                clubs [fixtures [currentWeek][i][0]].setTotalLosses(clubs [fixtures [currentWeek][i][0]].getTotalLosses() + 1);
+                clubs [fixtures [currentWeek][i][1]].setTotalWins(clubs [fixtures [currentWeek][i][1]].getTotalWins() + 1);
             }
 
             // Print the match result
