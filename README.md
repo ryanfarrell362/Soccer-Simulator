@@ -1,19 +1,22 @@
-# Soccer-Simulator
 Version 0.1
+
+# Purpose
+
+Inspired by marble races on Youtube, this program allows you to generate a league of fictional teams and have them compete against each other. I just think it's fun.
 
 # Features
 
 ### Select from a variety of options
-![Options](example_images/options)
+![Options](example%20images/options.jpg)
 
 ### View Fixtures
-![Fixtures](example_images/fixtures)
+![Fixtures](example%20images/fixtures.jpg)
 
 ### View Standings
-![Standings](example_images/standings)
+![Standings](example%20images/standings.jpg)
 
 ### Simulate Matches
-![Results](example_images/results)
+![Results](example%20images/results.jpg)
 
 ### View Club History
-![History](example_images/history)
+![History](example%20images/history.jpg)
