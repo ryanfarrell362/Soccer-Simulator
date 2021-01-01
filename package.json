@@ -4,16 +4,16 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-  "start": "node app.js"
-},
+    "start": "node app.js"
+  },
   "repository": {
-  "type": "git",
-  "url": ""
-},
+    "type": "git",
+    "url": ""
+  },
   "author": "",
   "license": "",
   "bugs": {
-  "url": ""
-},
+    "url": ""
+  },
   "homepage": ""
 }
