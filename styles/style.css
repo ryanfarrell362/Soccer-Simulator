@@ -1,0 +1,68 @@
+* {
+   margin: 0px;
+   padding: 0px;
+}
+
+html {
+    background-color: #94BCBC;
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+  width: 0 auto;
+  height: 30px;
+  margin: 0 auto;
+  background-color: #349FA4;
+  padding: 0 20px 20px 20px;
+  border: 1px solid #349FA4;
+  box-shadow: 0 1px 5px #363837;
+}
+
+.header {
+    text-align: left;
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 3px;
+    padding-left: 5px;
+    padding-top: 10px;
+}
+
+.simweek {
+    padding-right: 30%;
+}
+
+.title {
+    display: inline-block;
+    size: 18px;
+    color: black;
+    padding: 0 20px 5px 0;
+}
+
+.box {
+    background-color: #fffff2;
+    border: 1px solid #fffff2;
+    width: 40%;
+    height: 90vh;
+    margin-left: 30%;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #363837;
+}
+
+.button {
+  border: 1px #039884;
+  color: black;
+  background-color: #039884;
+  padding: 5px 30px;
+  width: 150px;
+  height: 40px;
+  margin-top: 5px;
+  margin-right: 5px;
+  text-align: center;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #363837;
+  cursor: pointer;
+}
