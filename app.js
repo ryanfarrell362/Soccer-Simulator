@@ -1,11 +1,13 @@
-var http = require('http');
-var fs = require('fs');
+var http = require('http'),
+    fs = require('fs');
 
-const PORT=8080;
+const PORT = process.env.PORT || 3000
+
 
 fs.readFile('./index.html', function (err, html) {
-
-    if (err) throw err;
+    if (err) {
+        throw err;
+    }
 
     http.createServer(function(request, response) {
         response.writeHeader(200, {"Content-Type": "text/html"});
