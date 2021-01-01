@@ -1,0 +1,19 @@
+{
+  "name": "soccer-simulator",
+  "version": "0.1.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+  "start": "node app.js"
+},
+  "repository": {
+  "type": "git",
+  "url": ""
+},
+  "author": "",
+  "license": "",
+  "bugs": {
+  "url": ""
+},
+  "homepage": ""
+}
