@@ -1,17 +1,14 @@
-var http = require('http'),
-    fs = require('fs');
+var express = require("express");
+var fs = require('fs');
+const port = process.env.PORT || 3000
 
-const PORT = process.env.PORT || 3000
+var app = express();
+    app.set("view options", {layout: false});
+    app.use(express.static(__dirname));
 
-
-fs.readFile('./index.html', function (err, html) {
-    if (err) {
-        throw err;
-    }
-
-    http.createServer(function(request, response) {
-        response.writeHeader(200, {"Content-Type": "text/html"});
-        response.write(html);
-        response.end();
-    }).listen(PORT);
+app.get('/', function(req, res){
+    res.render('index.html');
 });
+
+app.listen(port);
+console.log('Express server started');
