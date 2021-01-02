@@ -8,20 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div style="display: flex; justify-content: space-around">
-        <div class="header">
-            <h3 class='title'>Home</h3>
-            <h3 class='title'>Fixtures</h3>
-            <h3 class='title'>Standings</h3>
+    <div id="navbar" class="header">
+        <div style="display: flex; justify-content: space-around">
+            <div class="headertext">
+                <h3 class='title'>Home</h3>
+                <h3 class='title'>Fixtures</h3>
+                <h3 class='title'>Standings</h3>
+            </div>
+            <div class="simweek">
+                <button class="button">Sim Week</button>
+            </div>
         </div>
-        <div class="simweek">
-            <button class="button">Sim Week</button>
-        </div>
-
     </div>
+
+    <h3 style="margin-top: 100px; margin-left: 25%; margin-bottom: 5px" class='title'>Fixtures</h3>
     <div class="box">
         <p id="week">Current Week: 1</p>
         <p id="season">Current Season: 1</p>
+    </div>
+
+    <h3 style="margin-top: 40px; margin-left: 25%; margin-bottom: 5px" class='title'>Standings</h3>
+    <div style="margin-bottom: 40px" class="box">
+        <p id="week">Current Week: 1</p>
+        <p id="season">Current Season: 1</p>
+    </div>
+
+    <div style="height: 60px" class="header">
+
     </div>
 
     <script src="scripts/main.js"></script>
