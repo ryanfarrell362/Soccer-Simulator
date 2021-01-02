@@ -22,14 +22,14 @@ body {
 .header {
     text-align: left;
     width: 40%;
-    margin-left: 30%;
+    margin-left: 25%;
     margin-top: 3px;
     padding-left: 5px;
     padding-top: 10px;
 }
 
 .simweek {
-    padding-right: 30%;
+    padding-right: 25%;
 }
 
 .title {
@@ -37,14 +37,15 @@ body {
     size: 18px;
     color: black;
     padding: 0 20px 5px 0;
+    cursor: pointer;
 }
 
 .box {
     background-color: #fffff2;
     border: 1px solid #fffff2;
-    width: 40%;
+    width: 50%;
     height: 90vh;
-    margin-left: 30%;
+    margin-left: 25%;
     margin-top: 40px;
     border-radius: 10px;
     box-shadow: 1px 1px 10px #363837;
