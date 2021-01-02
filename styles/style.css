@@ -11,9 +11,11 @@ body {
     background-color: #94BCBC;
 }
 
+a {
+    padding-top: 60px;
+}
+
 .header {
-    position: fixed;
-    overflow: hidden;
     width: 97.8%;
     height: 30px;
     margin: 0 auto;
@@ -21,6 +23,11 @@ body {
     padding: 0 20px 20px 20px;
     border: 1px solid #349FA4;
     box-shadow: 0 1px 5px #363837;
+}
+
+#navbar {
+    overflow: hidden;
+    position: fixed;
 }
 
 .headertext {
@@ -34,12 +41,22 @@ body {
     padding-right: 25%;
 }
 
+.seasonstatus {
+    width: 250px;
+    text-align: right;
+    padding: 3px 25px 0 0;
+}
+
 .title {
     display: inline-block;
     size: 18px;
     color: black;
     padding: 0 20px 5px 0;
     cursor: pointer;
+}
+
+.title:hover {
+    color: white;
 }
 
 .box {
