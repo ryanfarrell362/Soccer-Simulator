@@ -329,7 +329,6 @@ function simMatches (clubs, fixtures, currentWeek, currentSeason) {
 
 function generateScore (result) {
 
-    console.log (result);
     if (result > 99) {
         return 7;
     } else if (result > 96) {
