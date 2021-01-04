@@ -228,6 +228,11 @@ for (i = 0; i < NUM_TEAMS; i ++) {
     clubStandings [i] = i;
 }
 
+let teamNames = ["Seattle Seagulls", "Toronto Turtles", "Birmingham Beavers", "Sacramento Squirrels",
+                "Memphis Muskrats", "Chicago Chipmunks", "Detroit Deers", "Rochester Raccoons",
+                "Boston Bears", "Paris Porcupines", "Halifax Hedgehogs", "Florence Foxes",
+                "San Francisco Spiders", "Waterloo Wolves", "Guelph Gerbils", "Calgary Cats",
+                "Dallas Dogs", "Osaka Owls", "Phoenix Pandas", "Moscow Mice"];
 clubs = generateClubs (clubs);
 fixtures = generateFixtures (fixtures);
 
@@ -235,7 +240,7 @@ function generateClubs (clubs) {
     for (i = 0; i < NUM_TEAMS; i ++) {
         clubs [i] = {
             id: i,
-            name: 'Team ' + (i + 1),
+            name: teamNames [i],
             currentWins: 0,
             currentDraws: 0,
             currentLosses: 0,
@@ -289,7 +294,7 @@ button.addEventListener ("click", function () {
 
         document.getElementById ('week').textContent = 'Current Week: ' + (currentWeek + 1);
     } else {
-
+        button.textContent = 'End Season';
     }
 });
 
@@ -382,7 +387,7 @@ function sortClubs (clubs, clubStandings) {
 
 function printFixtures (fixtures, currentWeek, clubs, currentSeason) {
     for (i = 0; i < NUM_TEAMS / 2; i ++) {
-        upcomingMatches [i].textContent = clubs [fixtures [currentWeek + 1][i][0]].name + ' vs. ' + clubs [fixtures [currentWeek + 1][i][1]].name;
+        upcomingMatches [i].textContent = clubs [fixtures [currentWeek][i][0]].name + ' vs. ' + clubs [fixtures [currentWeek][i][1]].name;
     }
 }
 
