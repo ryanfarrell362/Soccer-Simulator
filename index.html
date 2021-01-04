@@ -20,20 +20,284 @@
                 <p id="week">Current Week: 1</p>
             </div>
             <div class="simweek">
-                <button class="button">Sim Week</button>
+                <button id="button" class="button">Sim Week</button>
             </div>
         </div>
     </div>
     <a id="home"></a>
 
-    <a id="fixtures"><h3 id="fixtures" style="margin-top: 100px; margin-left: 25%; margin-bottom: 5px" class='title'>Fixtures</h3></a>
-    <div class="box">
+    <a id="fixtures"><h3 id="fixtures" style="margin-top: 100px; margin-left: 25.2%; margin-bottom: 5px" class='title'>Fixtures</h3></a>
+    <div id="fixturesbox" class="box">
+        <div style="display: flex; justify-content: space-around">
+            <div class="matchresults">
+                <h2 id="lastweek" class="fixturesheaders">Last Week</h2>
 
+                <h5 id="results1" class="scores">Team 1 - 3<br>Team 2 - 0</h5>
+                <h5 id="results2" class="scores">Team 1 - 3<br>Team 2 - 0</h5>
+                <h5 id="results3" class="scores">Team 1 - 3<br>Team 2 - 0</h5>
+                <h5 id="results4" class="scores">Team 1 - 3<br>Team 2 - 0</h5>
+                <h5 id="results5" class="scores">Team 1 - 3<br>Team 2 - 0</h5>
+                <h5 id="results6" class="scores">Team 1 - 3<br>Team 2 - 0</h5>
+                <h5 id="results7" class="scores">Team 1 - 3<br>Team 2 - 0</h5>
+                <h5 id="results8" class="scores">Team 1 - 3<br>Team 2 - 0</h5>
+                <h5 id="results9" class="scores">Team 1 - 3<br>Team 2 - 0</h5>
+                <h5 id="results10" class="scores">Team 1 - 3<br>Team 2 - 0</h5>
+            </div>
+            <div class="fixturesline">
+
+            </div>
+            <div class="upcomingmatches">
+                <h2 id="thisweek" class="fixturesheaders">This Week</h2>
+
+                <h5 id="upcoming1" class="scores">Team 1<br>vs<br>Team 2</h5>
+                <h5 id="upcoming2" class="scores">Team 1<br>vs<br>Team 2</h5>
+                <h5 id="upcoming3" class="scores">Team 1<br>vs<br>Team 2</h5>
+                <h5 id="upcoming4" class="scores">Team 1<br>vs<br>Team 2</h5>
+                <h5 id="upcoming5" class="scores">Team 1<br>vs<br>Team 2</h5>
+                <h5 id="upcoming6" class="scores">Team 1<br>vs<br>Team 2</h5>
+                <h5 id="upcoming7" class="scores">Team 1<br>vs<br>Team 2</h5>
+                <h5 id="upcoming8" class="scores">Team 1<br>vs<br>Team 2</h5>
+                <h5 id="upcoming9" class="scores">Team 1<br>vs<br>Team 2</h5>
+                <h5 id="upcoming10" class="scores">Team 1<br>vs<br>Team 2</h5>
+            </div>
+        </div>
     </div>
 
-    <a id="standings"><h3 id="standings" style="margin-top: 100px; margin-left: 25%; margin-bottom: 5px" class='title'>Standings</h3></a>
-    <div style="margin-bottom: 40px" class="box">
-
+    <a id="standings"><h3 id="standings" style="margin-top: 100px; margin-left: 25.2%; margin-bottom: 5px" class='title'>Standings</h3></a>
+    <div style="margin-bottom: 40px" id="standingsbox" class="box">
+        <table id="standingstable">
+            <tr>
+                <th>Pos.</th>
+                <th class="teamname">Team Name</th>
+                <th class="matchstats">Wins</th>
+                <th class="matchstats">Draws</th>
+                <th class="matchstats">Losses</th>
+                <th>G.F.</th>
+                <th>G.A.</th>
+                <th>G.D.</th>
+                <th class="points">Points</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Team 1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Team 2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Team 3</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Team 4</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Team 5</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Team 6</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Team 7</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Team 8</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Team 9</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Team 10</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Team 11</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Team 12</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Team 13</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Team 14</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Team 15</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Team 16</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Team 17</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Team 18</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Team 19</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Team 20</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </table>
     </div>
 
     <div style="height: 60px" class="header">

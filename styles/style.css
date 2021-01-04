@@ -15,6 +15,71 @@ a {
     padding-top: 60px;
 }
 
+table {
+    border: none;
+}
+
+table, th, td {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px 10px;
+}
+
+table td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+table th {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+table td:first-child {
+    border-left: none;
+}
+
+table td:last-child {
+    border-right: none;
+}
+
+table th:first-child {
+    border-left: none;
+}
+
+table th:last-child {
+    border-right: none;
+}
+
+table tr:first-child {
+    border-bottom: 1px solid #000;
+}
+
+.teamname {
+    width: 250px;
+}
+
+.matchstats {
+    width: 50px;
+}
+
+.points {
+    width: 60px;
+}
+
+#standingstable {
+    margin-top: 4vh;
+    margin-left: 9.5%;
+    text-align: center;
+    margin-bottom: 4vh;
+}
+
+#standingstable tr:nth-child(even) {
+  background-color: #eee;
+}
+
 #home {
     padding-top: 120px;
 }
@@ -67,10 +132,28 @@ a {
     background-color: #fffff2;
     border: 1px solid #fffff2;
     width: 50%;
-    height: 90vh;
+    height: 80vh;
     margin-left: 25%;
     border-radius: 10px;
     box-shadow: 1px 1px 10px #363837;
+}
+
+.fixturesline {
+    height: 70vh;
+    background-color: #393134;
+    margin-top: 5vh;
+    width: 1px;
+}
+
+.fixturesheaders {
+    margin-top: 1.5vh;
+    text-align: center;
+    padding: 0 125px;
+    padding-bottom: 5vh;
+}
+
+.scores {
+    padding-top: 10px;
 }
 
 .button {
