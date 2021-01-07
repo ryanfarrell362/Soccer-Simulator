@@ -69,6 +69,18 @@ table tr:first-child {
     width: 60px;
 }
 
+.matchboxes {
+    padding-left: 75px;
+}
+
+.matchbox {
+    margin-bottom: 20px;
+}
+
+.matchteam {
+    width: 175px;
+}
+
 #standingstable {
     margin-top: 4vh;
     margin-left: 9.5%;
@@ -139,7 +151,7 @@ table tr:first-child {
 }
 
 .fixturesline {
-    height: 70vh;
+    height: 100vh;
     background-color: #393134;
     margin-top: 5vh;
     width: 1px;

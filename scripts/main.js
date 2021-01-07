@@ -11,29 +11,86 @@ const button = document.getElementById ('button');
 
 let matchResults = new Array ();
 
-matchResults.push (document.getElementById ('results1'));
-matchResults.push (document.getElementById ('results2'));
-matchResults.push (document.getElementById ('results3'));
-matchResults.push (document.getElementById ('results4'));
-matchResults.push (document.getElementById ('results5'));
-matchResults.push (document.getElementById ('results6'));
-matchResults.push (document.getElementById ('results7'));
-matchResults.push (document.getElementById ('results8'));
-matchResults.push (document.getElementById ('results9'));
-matchResults.push (document.getElementById ('results10'));
+for (i = 0 ; i < NUM_TEAMS / 2; i ++) {
+    matchResults [i] = new Array ();
+}
+
+matchResults [0].push (document.getElementById ('result1team1'));
+matchResults [0].push (document.getElementById ('result1team2'));
+matchResults [0].push (document.getElementById ('result1score1'));
+matchResults [0].push (document.getElementById ('result1score2'));
+
+matchResults [1].push (document.getElementById ('result2team1'));
+matchResults [1].push (document.getElementById ('result2team2'));
+matchResults [1].push (document.getElementById ('result2score1'));
+matchResults [1].push (document.getElementById ('result2score2'));
+
+matchResults [2].push (document.getElementById ('result3team1'));
+matchResults [2].push (document.getElementById ('result3team2'));
+matchResults [2].push (document.getElementById ('result3score1'));
+matchResults [2].push (document.getElementById ('result3score2'));
+
+matchResults [3].push (document.getElementById ('result4team1'));
+matchResults [3].push (document.getElementById ('result4team2'));
+matchResults [3].push (document.getElementById ('result4score1'));
+matchResults [3].push (document.getElementById ('result4score2'));
+
+matchResults [4].push (document.getElementById ('result5team1'));
+matchResults [4].push (document.getElementById ('result5team2'));
+matchResults [4].push (document.getElementById ('result5score1'));
+matchResults [4].push (document.getElementById ('result5score2'));
+
+matchResults [5].push (document.getElementById ('result6team1'));
+matchResults [5].push (document.getElementById ('result6team2'));
+matchResults [5].push (document.getElementById ('result6score1'));
+matchResults [5].push (document.getElementById ('result6score2'));
+
+matchResults [6].push (document.getElementById ('result7team1'));
+matchResults [6].push (document.getElementById ('result7team2'));
+matchResults [6].push (document.getElementById ('result7score1'));
+matchResults [6].push (document.getElementById ('result7score2'));
+
+matchResults [7].push (document.getElementById ('result8team1'));
+matchResults [7].push (document.getElementById ('result8team2'));
+matchResults [7].push (document.getElementById ('result8score1'));
+matchResults [7].push (document.getElementById ('result8score2'));
+
+matchResults [8].push (document.getElementById ('result9team1'));
+matchResults [8].push (document.getElementById ('result9team2'));
+matchResults [8].push (document.getElementById ('result9score1'));
+matchResults [8].push (document.getElementById ('result9score2'));
+
+matchResults [9].push (document.getElementById ('result10team1'));
+matchResults [9].push (document.getElementById ('result10team2'));
+matchResults [9].push (document.getElementById ('result10score1'));
+matchResults [9].push (document.getElementById ('result10score2'));
 
 let upcomingMatches = new Array ();
 
-upcomingMatches.push (document.getElementById ('upcoming1'));
-upcomingMatches.push (document.getElementById ('upcoming2'));
-upcomingMatches.push (document.getElementById ('upcoming3'));
-upcomingMatches.push (document.getElementById ('upcoming4'));
-upcomingMatches.push (document.getElementById ('upcoming5'));
-upcomingMatches.push (document.getElementById ('upcoming6'));
-upcomingMatches.push (document.getElementById ('upcoming7'));
-upcomingMatches.push (document.getElementById ('upcoming8'));
-upcomingMatches.push (document.getElementById ('upcoming9'));
-upcomingMatches.push (document.getElementById ('upcoming10'));
+for (i = 0 ; i < NUM_TEAMS / 2; i ++) {
+    upcomingMatches [i] = new Array ();
+}
+
+upcomingMatches [0].push (document.getElementById ('upcoming1team1'));
+upcomingMatches [0].push (document.getElementById ('upcoming1team2'));
+upcomingMatches [1].push (document.getElementById ('upcoming2team1'));
+upcomingMatches [1].push (document.getElementById ('upcoming2team2'));
+upcomingMatches [2].push (document.getElementById ('upcoming3team1'));
+upcomingMatches [2].push (document.getElementById ('upcoming3team2'));
+upcomingMatches [3].push (document.getElementById ('upcoming4team1'));
+upcomingMatches [3].push (document.getElementById ('upcoming4team2'));
+upcomingMatches [4].push (document.getElementById ('upcoming5team1'));
+upcomingMatches [4].push (document.getElementById ('upcoming5team2'));
+upcomingMatches [5].push (document.getElementById ('upcoming6team1'));
+upcomingMatches [5].push (document.getElementById ('upcoming6team2'));
+upcomingMatches [6].push (document.getElementById ('upcoming7team1'));
+upcomingMatches [6].push (document.getElementById ('upcoming7team2'));
+upcomingMatches [7].push (document.getElementById ('upcoming8team1'));
+upcomingMatches [7].push (document.getElementById ('upcoming8team2'));
+upcomingMatches [8].push (document.getElementById ('upcoming9team1'));
+upcomingMatches [8].push (document.getElementById ('upcoming9team2'));
+upcomingMatches [9].push (document.getElementById ('upcoming10team1'));
+upcomingMatches [9].push (document.getElementById ('upcoming10team2'));
 
 let standings = new Array ();
 
@@ -323,7 +380,11 @@ function simMatches (clubs, fixtures, currentWeek, currentSeason) {
             clubs [fixtures [currentWeek][i][1]].currentWins ++;
         }
 
-        matchResults [i].textContent = clubs [fixtures [currentWeek][i][0]].name + ' (' + goals1 + ' - ' + goals2 + ') ' + clubs [fixtures [currentWeek][i][1]].name;
+        matchResults [i][0].textContent = clubs [fixtures [currentWeek][i][0]].name;
+        matchResults [i][1].textContent = clubs [fixtures [currentWeek][i][1]].name;
+
+        matchResults [i][2].textContent = goals1;
+        matchResults [i][3].textContent = goals2;
     }
 }
 
@@ -386,7 +447,8 @@ function sortClubs (clubs, clubStandings) {
 
 function printFixtures (fixtures, currentWeek, clubs, currentSeason) {
     for (i = 0; i < NUM_TEAMS / 2; i ++) {
-        upcomingMatches [i].textContent = clubs [fixtures [currentWeek][i][0]].name + ' vs. ' + clubs [fixtures [currentWeek][i][1]].name;
+        upcomingMatches [i][0].textContent = clubs [fixtures [currentWeek][i][0]].name;
+        upcomingMatches [i][1].textContent = clubs [fixtures [currentWeek][i][1]].name;
     }
 }
 
