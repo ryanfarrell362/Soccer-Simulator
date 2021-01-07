@@ -290,6 +290,7 @@ let teamNames = ["Seattle Seagulls", "Toronto Turtles", "Birmingham Beavers", "S
                 "Boston Bears", "Paris Porcupines", "Halifax Hedgehogs", "Florence Foxes",
                 "San Francisco Spiders", "Waterloo Wolves", "Guelph Gerbils", "Calgary Cats",
                 "Dallas Dogs", "Osaka Owls", "Phoenix Pandas", "Moscow Mice"];
+
 clubs = generateClubs (clubs);
 fixtures = generateFixtures (fixtures);
 
@@ -343,15 +344,17 @@ button.addEventListener ("click", function () {
     if (currentWeek < (NUM_TEAMS - 1) * NUM_OCCURRENCES) {
         simMatches (clubs, fixtures, currentWeek, currentSeason);
         clubStandings = sortClubs (clubs, clubStandings);
+        printStandings (clubs, clubStandings, currentWeek, currentSeason);
 
         currentWeek ++;
 
         printFixtures (fixtures, currentWeek, clubs, currentSeason);
-        printStandings (clubs, clubStandings, currentWeek, currentSeason);
+
+        if (currentWeek >= (NUM_TEAMS - 1) * NUM_OCCURRENCES) {
+            button.textContent = 'End Season';
+        }
 
         document.getElementById ('week').textContent = 'Current Week: ' + (currentWeek + 1);
-    } else {
-        button.textContent = 'End Season';
     }
 });
 
@@ -447,8 +450,14 @@ function sortClubs (clubs, clubStandings) {
 
 function printFixtures (fixtures, currentWeek, clubs, currentSeason) {
     for (i = 0; i < NUM_TEAMS / 2; i ++) {
-        upcomingMatches [i][0].textContent = clubs [fixtures [currentWeek][i][0]].name;
-        upcomingMatches [i][1].textContent = clubs [fixtures [currentWeek][i][1]].name;
+        if (currentWeek < (NUM_TEAMS - 1) * NUM_OCCURRENCES) {
+            upcomingMatches [i][0].textContent = clubs [fixtures [currentWeek][i][0]].name;
+            upcomingMatches [i][1].textContent = clubs [fixtures [currentWeek][i][1]].name;
+        } else {
+            upcomingMatches [i][0].textContent = 'TBD';
+            upcomingMatches [i][1].textContent = 'TBD';
+        }
+
     }
 }
 
