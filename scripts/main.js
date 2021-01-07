@@ -15,55 +15,15 @@ for (i = 0 ; i < NUM_TEAMS / 2; i ++) {
     matchResults [i] = new Array ();
 }
 
-matchResults [0].push (document.getElementById ('result1team1'));
-matchResults [0].push (document.getElementById ('result1team2'));
-matchResults [0].push (document.getElementById ('result1score1'));
-matchResults [0].push (document.getElementById ('result1score2'));
-
-matchResults [1].push (document.getElementById ('result2team1'));
-matchResults [1].push (document.getElementById ('result2team2'));
-matchResults [1].push (document.getElementById ('result2score1'));
-matchResults [1].push (document.getElementById ('result2score2'));
-
-matchResults [2].push (document.getElementById ('result3team1'));
-matchResults [2].push (document.getElementById ('result3team2'));
-matchResults [2].push (document.getElementById ('result3score1'));
-matchResults [2].push (document.getElementById ('result3score2'));
-
-matchResults [3].push (document.getElementById ('result4team1'));
-matchResults [3].push (document.getElementById ('result4team2'));
-matchResults [3].push (document.getElementById ('result4score1'));
-matchResults [3].push (document.getElementById ('result4score2'));
-
-matchResults [4].push (document.getElementById ('result5team1'));
-matchResults [4].push (document.getElementById ('result5team2'));
-matchResults [4].push (document.getElementById ('result5score1'));
-matchResults [4].push (document.getElementById ('result5score2'));
-
-matchResults [5].push (document.getElementById ('result6team1'));
-matchResults [5].push (document.getElementById ('result6team2'));
-matchResults [5].push (document.getElementById ('result6score1'));
-matchResults [5].push (document.getElementById ('result6score2'));
-
-matchResults [6].push (document.getElementById ('result7team1'));
-matchResults [6].push (document.getElementById ('result7team2'));
-matchResults [6].push (document.getElementById ('result7score1'));
-matchResults [6].push (document.getElementById ('result7score2'));
-
-matchResults [7].push (document.getElementById ('result8team1'));
-matchResults [7].push (document.getElementById ('result8team2'));
-matchResults [7].push (document.getElementById ('result8score1'));
-matchResults [7].push (document.getElementById ('result8score2'));
-
-matchResults [8].push (document.getElementById ('result9team1'));
-matchResults [8].push (document.getElementById ('result9team2'));
-matchResults [8].push (document.getElementById ('result9score1'));
-matchResults [8].push (document.getElementById ('result9score2'));
-
-matchResults [9].push (document.getElementById ('result10team1'));
-matchResults [9].push (document.getElementById ('result10team2'));
-matchResults [9].push (document.getElementById ('result10score1'));
-matchResults [9].push (document.getElementById ('result10score2'));
+for (i = 0; i < NUM_TEAMS / 2; i ++) {
+    for (j = 1; j < 5; j ++) {
+        if (j < 3) {
+            matchResults [i].push (document.getElementById ('result' + (i + 1) + 'team' + (j % 3)));
+        } else {
+            matchResults [i].push (document.getElementById ('result' + (i + 1) + 'score' + (j % 5 - 2)));
+        }
+    }
+}
 
 let upcomingMatches = new Array ();
 
@@ -71,26 +31,11 @@ for (i = 0 ; i < NUM_TEAMS / 2; i ++) {
     upcomingMatches [i] = new Array ();
 }
 
-upcomingMatches [0].push (document.getElementById ('upcoming1team1'));
-upcomingMatches [0].push (document.getElementById ('upcoming1team2'));
-upcomingMatches [1].push (document.getElementById ('upcoming2team1'));
-upcomingMatches [1].push (document.getElementById ('upcoming2team2'));
-upcomingMatches [2].push (document.getElementById ('upcoming3team1'));
-upcomingMatches [2].push (document.getElementById ('upcoming3team2'));
-upcomingMatches [3].push (document.getElementById ('upcoming4team1'));
-upcomingMatches [3].push (document.getElementById ('upcoming4team2'));
-upcomingMatches [4].push (document.getElementById ('upcoming5team1'));
-upcomingMatches [4].push (document.getElementById ('upcoming5team2'));
-upcomingMatches [5].push (document.getElementById ('upcoming6team1'));
-upcomingMatches [5].push (document.getElementById ('upcoming6team2'));
-upcomingMatches [6].push (document.getElementById ('upcoming7team1'));
-upcomingMatches [6].push (document.getElementById ('upcoming7team2'));
-upcomingMatches [7].push (document.getElementById ('upcoming8team1'));
-upcomingMatches [7].push (document.getElementById ('upcoming8team2'));
-upcomingMatches [8].push (document.getElementById ('upcoming9team1'));
-upcomingMatches [8].push (document.getElementById ('upcoming9team2'));
-upcomingMatches [9].push (document.getElementById ('upcoming10team1'));
-upcomingMatches [9].push (document.getElementById ('upcoming10team2'));
+for (i = 0; i < NUM_TEAMS / 2; i ++) {
+    for (j = 0; j < 2; j ++) {
+        upcomingMatches [i].push (document.getElementById ('upcoming' + (i + 1) + 'team' + (j + 1)));
+    }
+}
 
 let standings = new Array ();
 
@@ -98,173 +43,16 @@ for (i = 0; i < NUM_TEAMS; i ++) {
     standings [i] = new Array ();
 }
 
-standings [0].push (document.getElementById ('teamname1'));
-standings [0].push (document.getElementById ('teamname2'));
-standings [0].push (document.getElementById ('teamname3'));
-standings [0].push (document.getElementById ('teamname4'));
-standings [0].push (document.getElementById ('teamname5'));
-standings [0].push (document.getElementById ('teamname6'));
-standings [0].push (document.getElementById ('teamname7'));
-standings [0].push (document.getElementById ('teamname8'));
-standings [0].push (document.getElementById ('teamname9'));
-standings [0].push (document.getElementById ('teamname10'));
-standings [0].push (document.getElementById ('teamname11'));
-standings [0].push (document.getElementById ('teamname12'));
-standings [0].push (document.getElementById ('teamname13'));
-standings [0].push (document.getElementById ('teamname14'));
-standings [0].push (document.getElementById ('teamname15'));
-standings [0].push (document.getElementById ('teamname16'));
-standings [0].push (document.getElementById ('teamname17'));
-standings [0].push (document.getElementById ('teamname18'));
-standings [0].push (document.getElementById ('teamname19'));
-standings [0].push (document.getElementById ('teamname20'));
-
-standings [1].push (document.getElementById ('teamwins1'));
-standings [1].push (document.getElementById ('teamwins2'));
-standings [1].push (document.getElementById ('teamwins3'));
-standings [1].push (document.getElementById ('teamwins4'));
-standings [1].push (document.getElementById ('teamwins5'));
-standings [1].push (document.getElementById ('teamwins6'));
-standings [1].push (document.getElementById ('teamwins7'));
-standings [1].push (document.getElementById ('teamwins8'));
-standings [1].push (document.getElementById ('teamwins9'));
-standings [1].push (document.getElementById ('teamwins10'));
-standings [1].push (document.getElementById ('teamwins11'));
-standings [1].push (document.getElementById ('teamwins12'));
-standings [1].push (document.getElementById ('teamwins13'));
-standings [1].push (document.getElementById ('teamwins14'));
-standings [1].push (document.getElementById ('teamwins15'));
-standings [1].push (document.getElementById ('teamwins16'));
-standings [1].push (document.getElementById ('teamwins17'));
-standings [1].push (document.getElementById ('teamwins18'));
-standings [1].push (document.getElementById ('teamwins19'));
-standings [1].push (document.getElementById ('teamwins20'));
-
-standings [2].push (document.getElementById ('teamdraws1'));
-standings [2].push (document.getElementById ('teamdraws2'));
-standings [2].push (document.getElementById ('teamdraws3'));
-standings [2].push (document.getElementById ('teamdraws4'));
-standings [2].push (document.getElementById ('teamdraws5'));
-standings [2].push (document.getElementById ('teamdraws6'));
-standings [2].push (document.getElementById ('teamdraws7'));
-standings [2].push (document.getElementById ('teamdraws8'));
-standings [2].push (document.getElementById ('teamdraws9'));
-standings [2].push (document.getElementById ('teamdraws10'));
-standings [2].push (document.getElementById ('teamdraws11'));
-standings [2].push (document.getElementById ('teamdraws12'));
-standings [2].push (document.getElementById ('teamdraws13'));
-standings [2].push (document.getElementById ('teamdraws14'));
-standings [2].push (document.getElementById ('teamdraws15'));
-standings [2].push (document.getElementById ('teamdraws16'));
-standings [2].push (document.getElementById ('teamdraws17'));
-standings [2].push (document.getElementById ('teamdraws18'));
-standings [2].push (document.getElementById ('teamdraws19'));
-standings [2].push (document.getElementById ('teamdraws20'));
-
-standings [3].push (document.getElementById ('teamlosses1'));
-standings [3].push (document.getElementById ('teamlosses2'));
-standings [3].push (document.getElementById ('teamlosses3'));
-standings [3].push (document.getElementById ('teamlosses4'));
-standings [3].push (document.getElementById ('teamlosses5'));
-standings [3].push (document.getElementById ('teamlosses6'));
-standings [3].push (document.getElementById ('teamlosses7'));
-standings [3].push (document.getElementById ('teamlosses8'));
-standings [3].push (document.getElementById ('teamlosses9'));
-standings [3].push (document.getElementById ('teamlosses10'));
-standings [3].push (document.getElementById ('teamlosses11'));
-standings [3].push (document.getElementById ('teamlosses12'));
-standings [3].push (document.getElementById ('teamlosses13'));
-standings [3].push (document.getElementById ('teamlosses14'));
-standings [3].push (document.getElementById ('teamlosses15'));
-standings [3].push (document.getElementById ('teamlosses16'));
-standings [3].push (document.getElementById ('teamlosses17'));
-standings [3].push (document.getElementById ('teamlosses18'));
-standings [3].push (document.getElementById ('teamlosses19'));
-standings [3].push (document.getElementById ('teamlosses20'));
-
-standings [4].push (document.getElementById ('teamgoalsfor1'));
-standings [4].push (document.getElementById ('teamgoalsfor2'));
-standings [4].push (document.getElementById ('teamgoalsfor3'));
-standings [4].push (document.getElementById ('teamgoalsfor4'));
-standings [4].push (document.getElementById ('teamgoalsfor5'));
-standings [4].push (document.getElementById ('teamgoalsfor6'));
-standings [4].push (document.getElementById ('teamgoalsfor7'));
-standings [4].push (document.getElementById ('teamgoalsfor8'));
-standings [4].push (document.getElementById ('teamgoalsfor9'));
-standings [4].push (document.getElementById ('teamgoalsfor10'));
-standings [4].push (document.getElementById ('teamgoalsfor11'));
-standings [4].push (document.getElementById ('teamgoalsfor12'));
-standings [4].push (document.getElementById ('teamgoalsfor13'));
-standings [4].push (document.getElementById ('teamgoalsfor14'));
-standings [4].push (document.getElementById ('teamgoalsfor15'));
-standings [4].push (document.getElementById ('teamgoalsfor16'));
-standings [4].push (document.getElementById ('teamgoalsfor17'));
-standings [4].push (document.getElementById ('teamgoalsfor18'));
-standings [4].push (document.getElementById ('teamgoalsfor19'));
-standings [4].push (document.getElementById ('teamgoalsfor20'));
-
-standings [5].push (document.getElementById ('teamgoalsagainst1'));
-standings [5].push (document.getElementById ('teamgoalsagainst2'));
-standings [5].push (document.getElementById ('teamgoalsagainst3'));
-standings [5].push (document.getElementById ('teamgoalsagainst4'));
-standings [5].push (document.getElementById ('teamgoalsagainst5'));
-standings [5].push (document.getElementById ('teamgoalsagainst6'));
-standings [5].push (document.getElementById ('teamgoalsagainst7'));
-standings [5].push (document.getElementById ('teamgoalsagainst8'));
-standings [5].push (document.getElementById ('teamgoalsagainst9'));
-standings [5].push (document.getElementById ('teamgoalsagainst10'));
-standings [5].push (document.getElementById ('teamgoalsagainst11'));
-standings [5].push (document.getElementById ('teamgoalsagainst12'));
-standings [5].push (document.getElementById ('teamgoalsagainst13'));
-standings [5].push (document.getElementById ('teamgoalsagainst14'));
-standings [5].push (document.getElementById ('teamgoalsagainst15'));
-standings [5].push (document.getElementById ('teamgoalsagainst16'));
-standings [5].push (document.getElementById ('teamgoalsagainst17'));
-standings [5].push (document.getElementById ('teamgoalsagainst18'));
-standings [5].push (document.getElementById ('teamgoalsagainst19'));
-standings [5].push (document.getElementById ('teamgoalsagainst20'));
-
-standings [6].push (document.getElementById ('teamgoaldifferential1'));
-standings [6].push (document.getElementById ('teamgoaldifferential2'));
-standings [6].push (document.getElementById ('teamgoaldifferential3'));
-standings [6].push (document.getElementById ('teamgoaldifferential4'));
-standings [6].push (document.getElementById ('teamgoaldifferential5'));
-standings [6].push (document.getElementById ('teamgoaldifferential6'));
-standings [6].push (document.getElementById ('teamgoaldifferential7'));
-standings [6].push (document.getElementById ('teamgoaldifferential8'));
-standings [6].push (document.getElementById ('teamgoaldifferential9'));
-standings [6].push (document.getElementById ('teamgoaldifferential10'));
-standings [6].push (document.getElementById ('teamgoaldifferential11'));
-standings [6].push (document.getElementById ('teamgoaldifferential12'));
-standings [6].push (document.getElementById ('teamgoaldifferential13'));
-standings [6].push (document.getElementById ('teamgoaldifferential14'));
-standings [6].push (document.getElementById ('teamgoaldifferential15'));
-standings [6].push (document.getElementById ('teamgoaldifferential16'));
-standings [6].push (document.getElementById ('teamgoaldifferential17'));
-standings [6].push (document.getElementById ('teamgoaldifferential18'));
-standings [6].push (document.getElementById ('teamgoaldifferential19'));
-standings [6].push (document.getElementById ('teamgoaldifferential20'));
-
-standings [7].push (document.getElementById ('teampoints1'));
-standings [7].push (document.getElementById ('teampoints2'));
-standings [7].push (document.getElementById ('teampoints3'));
-standings [7].push (document.getElementById ('teampoints4'));
-standings [7].push (document.getElementById ('teampoints5'));
-standings [7].push (document.getElementById ('teampoints6'));
-standings [7].push (document.getElementById ('teampoints7'));
-standings [7].push (document.getElementById ('teampoints8'));
-standings [7].push (document.getElementById ('teampoints9'));
-standings [7].push (document.getElementById ('teampoints10'));
-standings [7].push (document.getElementById ('teampoints11'));
-standings [7].push (document.getElementById ('teampoints12'));
-standings [7].push (document.getElementById ('teampoints13'));
-standings [7].push (document.getElementById ('teampoints14'));
-standings [7].push (document.getElementById ('teampoints15'));
-standings [7].push (document.getElementById ('teampoints16'));
-standings [7].push (document.getElementById ('teampoints17'));
-standings [7].push (document.getElementById ('teampoints18'));
-standings [7].push (document.getElementById ('teampoints19'));
-standings [7].push (document.getElementById ('teampoints20'));
+for (i = 1; i < NUM_TEAMS + 1; i ++) {
+    standings [0].push (document.getElementById ('teamname' + i));
+    standings [1].push (document.getElementById ('teamwins' + i));
+    standings [2].push (document.getElementById ('teamdraws' + i));
+    standings [3].push (document.getElementById ('teamlosses' + i));
+    standings [4].push (document.getElementById ('teamgoalsfor' + i));
+    standings [5].push (document.getElementById ('teamgoalsagainst' + i));
+    standings [6].push (document.getElementById ('teamgoaldifferential' + i));
+    standings [7].push (document.getElementById ('teampoints' + i));
+}
 
 let clubs = new Array ();
 let fixtures = new Array ();
@@ -350,11 +138,17 @@ button.addEventListener ("click", function () {
 
         printFixtures (fixtures, currentWeek, clubs, currentSeason);
 
-        if (currentWeek >= (NUM_TEAMS - 1) * NUM_OCCURRENCES) {
-            button.textContent = 'End Season';
-        }
-
         document.getElementById ('week').textContent = 'Current Week: ' + (currentWeek + 1);
+    }
+
+    if (button.textContent === 'Next Season') {
+        currentWeek = 0;
+        currentSeason ++;
+        endOfSeason (clubs, clubStandings, currentWeek, currentSeason);
+    }
+
+    if (currentWeek >= (NUM_TEAMS - 1) * NUM_OCCURRENCES) {
+        button.textContent = 'Next Season';
     }
 });
 
@@ -472,4 +266,23 @@ function printStandings (clubs, clubStandings, currentWeek, currentSeason) {
         standings [6][i].textContent = clubs [clubStandings [i]].currentGoalsFor - clubs [clubStandings [i]].currentGoalsAgainst;
         standings [7][i].textContent = clubs [clubStandings [i]].currentWins * 3 + clubs [clubStandings [i]].currentDraws;
     }
+}
+
+function endOfSeason (clubs, clubStandings, currentWeek, currentSeason) {
+    document.getElementById ('week').textContent = 'Current Week: ' + (currentWeek + 1);
+    document.getElementById ('season').textContent = 'Current Season: ' + currentSeason;
+
+    for (i = 0; i < NUM_TEAMS; i ++) {
+        clubs [i].currentWins = 0;
+        clubs [i].currentDraws = 0;
+        clubs [i].currentLosses = 0;
+        clubs [i].currentGoalsFor = 0;
+        clubs [i].currentGoalsAgainst = 0;
+        clubs [i].sway = Math.round((Math.random () * VARIATION) + 100 - (VARIATION / 2));
+    }
+
+    printFixtures (fixtures, currentWeek, clubs, currentSeason);
+    printStandings (clubs, clubStandings, currentWeek, currentSeason);
+
+    button.textContent = 'Sim Week';
 }

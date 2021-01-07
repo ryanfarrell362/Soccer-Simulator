@@ -174,8 +174,8 @@ table tr:first-child {
   border: 1px #039884;
   background-color: #039884;
   margin: 5px 5px 0 0;
-  padding: 5px 30px;
-  width: 160px;
+  padding: 5px 5px;
+  width: 140px;
   height: 40px;
   font-size: 18px;
   border-radius: 5px;
