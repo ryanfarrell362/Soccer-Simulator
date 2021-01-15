@@ -8,6 +8,9 @@ let j;
 let k;
 
 const button = document.getElementById ('button');
+let modal = document.getElementById ('champion');
+let span = document.getElementsByClassName("close")[0];
+let modalText = document.getElementById ('modaltext');
 
 let matchResults = new Array ();
 
@@ -128,6 +131,8 @@ function generateFixtures (fixtures) {
     return fixtures;
 }
 
+printFixtures (fixtures, currentWeek, clubs, currentSeason);
+
 button.addEventListener ("click", function () {
     if (currentWeek < (NUM_TEAMS - 1) * NUM_OCCURRENCES) {
         simMatches (clubs, fixtures, currentWeek, currentSeason);
@@ -148,9 +153,21 @@ button.addEventListener ("click", function () {
     }
 
     if (currentWeek >= (NUM_TEAMS - 1) * NUM_OCCURRENCES) {
+        modalText.textContent = 'Congratulations to the ' + clubs [clubStandings [0]].name + ' for winning Season ' + currentSeason + '!';
+        modal.style.display = "block";
         button.textContent = 'Next Season';
     }
 });
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 function simMatches (clubs, fixtures, currentWeek, currentSeason) {
     let goals1;
